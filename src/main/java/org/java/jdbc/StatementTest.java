@@ -44,4 +44,8 @@ public class StatementTest {
         System.out.println(bool);
     }
 
+    private static void testS01(){
+
+    }
+
 }
