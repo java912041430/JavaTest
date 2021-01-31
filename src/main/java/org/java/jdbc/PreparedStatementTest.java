@@ -10,14 +10,15 @@ import java.util.Map;
 
 public class PreparedStatementTest {
 
+    final static String DRIVER = "com.mysql.jdbc.Driver";
+    final static String URL = "jdbc:mysql://localhost:3306/test";
+    final static String USER = "root";
+    final static String PWD = "123456";
+
     @Test
     public void JdbcTest() throws ClassNotFoundException, SQLException {
-        String Driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/test";
-        String user = "root";
-        String pwd = "123456";
-        Class.forName(Driver);
-        Connection connection = DriverManager.getConnection(url, user, pwd);
+        Class.forName(DRIVER);
+        Connection connection = DriverManager.getConnection(URL, USER, PWD);
 //        addInfo(connection,5,"小法",16);
 //        updateInfo(connection,5,"小法法",11);
 //        delInfo(connection,4);
@@ -26,7 +27,7 @@ public class PreparedStatementTest {
     }
 
     private static void getInfo(Connection connection,Integer... id) throws SQLException {
-        List<Map> mapList = new ArrayList<>();
+        List<Map<String,Object>> mapList = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM INFO ");
         if(id.length>0){
