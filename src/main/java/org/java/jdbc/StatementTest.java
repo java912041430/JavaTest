@@ -4,13 +4,13 @@ import java.sql.*;
 import java.util.*;
 
 public class StatementTest {
+    final static String DRIVER = "com.mysql.jdbc.Driver";
+    final static String URL = "jdbc:mysql://localhost:3306/test";
+    final static String USER = "root";
+    final static String PWD = "123456";
     public static void main(String[] args) throws Exception{
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/test";
-        String user = "root";
-        String pwd = "123456";
-        Class.forName(driver);
-        Connection connection = DriverManager.getConnection(url,user,pwd);
+        Class.forName(DRIVER);
+        Connection connection = DriverManager.getConnection(URL,USER,PWD);
         Statement statement = connection.createStatement();
         selectInfo(statement);
     }
